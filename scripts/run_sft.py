@@ -20,6 +20,7 @@ Supervised fine-tuning script for decoder language models.
 import logging
 import random
 import sys
+import time
 
 import datasets
 import torch
@@ -57,10 +58,14 @@ def main():
     ###############
     # Setup logging
     ###############
+    timestamp = time.strftime("%Y%m%d_%H%M%S")
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
-        handlers=[logging.StreamHandler(sys.stdout)],
+        handlers=[
+            logging.StreamHandler(sys.stdout),
+            logging.FileHandler(f"logs/run_{timestamp}.log")
+        ],
     )
     log_level = training_args.get_process_log_level()
     logger.setLevel(log_level)
