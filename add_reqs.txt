@@ -1,2 +1,3 @@
 fire
 colored
+wandb
