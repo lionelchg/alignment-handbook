@@ -16,7 +16,7 @@ lora_target_modules:
 
 # Data training arguments
 dataset_mixer:
-  HuggingFaceH4/ultrachat_200k: 1.0
+  HuggingFaceH4/ultrachat_200k: 0.3
 dataset_splits:
 - train_sft
 - test_sft
